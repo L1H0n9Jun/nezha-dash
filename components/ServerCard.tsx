@@ -44,7 +44,7 @@ export default function ServerCard({
       >
         <section
           className={cn("grid items-center gap-2", {
-            "lg:w-40": !fixedTopServerName,
+            "lg:w-28": !fixedTopServerName,
           })}
           style={{ gridTemplateColumns: "auto auto 1fr" }}
         >
@@ -60,8 +60,8 @@ export default function ServerCard({
           <div className="relative">
             <p
               className={cn(
-                "break-all font-bold tracking-tight",
-                showFlag ? "text-xs " : "text-sm",
+                "break-all font-bold tracking-tight text-nowrap lg:max-w-[80px] overflow-x-scroll scrollbar-hidden pr-4",
+                showFlag ? "text-[11px]" : "text-sm",
               )}
             >
               {name}
@@ -169,7 +169,7 @@ export default function ServerCard({
     >
       <section
         className={cn("grid items-center gap-2", {
-          "lg:w-40": !fixedTopServerName,
+          "lg:w-28": !fixedTopServerName,
         })}
         style={{ gridTemplateColumns: "auto auto 1fr" }}
       >
@@ -185,8 +185,8 @@ export default function ServerCard({
         <div className="relative">
           <p
             className={cn(
-              "break-all font-bold tracking-tight",
-              showFlag ? "text-xs" : "text-sm",
+              "break-all font-bold tracking-tight text-nowrap overflow-x-scroll scrollbar-hidden pr-4",
+              showFlag ? "text-xs max-w-[80px]" : "text-sm",
             )}
           >
             {name}
