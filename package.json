@@ -11,6 +11,7 @@
     "start-dev": "next start"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.0.1",
     "@ducanh2912/next-pwa": "^10.2.9",
     "@heroicons/react": "^2.2.0",
     "@radix-ui/react-dialog": "^1.1.4",
