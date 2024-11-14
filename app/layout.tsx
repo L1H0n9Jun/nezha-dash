@@ -14,6 +14,7 @@ import { PublicEnvScript } from "next-runtime-env";
 import { ThemeProvider } from "next-themes";
 import { Inter as FontSans } from "next/font/google";
 import React from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -90,6 +91,7 @@ export default async function LocaleLayout({
             </NextIntlClientProvider>
           </ThemeProvider>
         </MotionProvider>
+        <Analytics />
       </body>
     </html>
   );
