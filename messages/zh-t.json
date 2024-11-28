@@ -96,7 +96,8 @@
     "Regions": "個地區"
   },
   "NotFoundPage": {
-    "h1_490-590_404NotFound": "404 未找到",
-    "h1_490-590_404NotFoundBack": "返回"
+    "h1_490-590_404NotFound": "伺服器未找到",
+    "h1_490-590_404NotFoundBack": "返回",
+    "h1_490-590_Error": "發生錯誤"
   }
 }
