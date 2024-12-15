@@ -14,6 +14,7 @@ import { PublicEnvScript } from "next-runtime-env"
 import { ThemeProvider } from "next-themes"
 import { Inter as FontSans } from "next/font/google"
 import React from "react"
+import Script from "next/script";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -81,6 +82,12 @@ export default async function LocaleLayout({ children }: { children: React.React
             </NextIntlClientProvider>
           </ThemeProvider>
         </MotionProvider>
+        <Script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: process.env.NEXT_PUBLIC_CF_ANALYTICS_ID })}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
