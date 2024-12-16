@@ -180,12 +180,15 @@ export default function ServerOverviewClient() {
                 {t("p_3463-3530_Totalbandwidth")}
               </p>
               {data?.result ? (
-                <section className="flex flex-col sm:flex-row pt-[8px] sm:items-center items-start gap-1">
-                  <p className="text-[12px]  text-nowrap font-semibold">
-                    ↑{formatBytes(data?.total_out_bandwidth)}
+                <section className="flex flex-col sm:flex-row pt-[4px] sm:items-center items-start gap-1">
+                  <p className="hidden sm:block text-[14px] text-nowrap font-semibold">
+                    ↑ {formatBytes(data?.total_out_bandwidth)}
                   </p>
-                  <p className="text-[12px] text-nowrap font-semibold">
-                    ↓{formatBytes(data?.total_in_bandwidth)}
+                  <p className="hidden sm:block text-[14px] text-nowrap font-semibold">
+                    ↓ {formatBytes(data?.total_in_bandwidth)}
+                  </p>
+                  <p className="sm:hidden text-[14px] text-nowrap font-semibold">
+                    ↑↓ {formatBytes((data?.total_out_bandwidth || 0) + (data?.total_in_bandwidth || 0))}
                   </p>
                 </section>
               ) : (
