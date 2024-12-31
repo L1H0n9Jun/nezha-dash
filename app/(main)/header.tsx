@@ -8,7 +8,7 @@ import getEnv from "@/lib/env-entry";
 import { DateTime } from "luxon";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Header() {
   const t = useTranslations("Header");
@@ -102,34 +102,25 @@ function Links() {
   );
 }
 
-// https://github.com/streamich/react-use/blob/master/src/useInterval.ts
-const useInterval = (callback: () => void, delay: number | null) => {
-  const savedCallback = useRef<() => void>(() => {});
-  useEffect(() => {
-    savedCallback.current = callback;
-  });
-  useEffect(() => {
-    if (delay !== null) {
-      const interval = setInterval(() => savedCallback.current(), delay || 0);
-      return () => clearInterval(interval);
-    }
-    return undefined;
-  }, [delay]);
-};
 function Overview() {
   const t = useTranslations("Overview");
   const [mouted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true);
-  }, []);
-  const timeOption = DateTime.TIME_SIMPLE;
-  timeOption.hour12 = true;
+    setMounted(true)
+  }, [])
+  const timeOption = DateTime.TIME_SIMPLE
+  timeOption.hour12 = true
   const [timeString, setTimeString] = useState(
     DateTime.now().setLocale("en-US").toLocaleString(timeOption),
-  );
-  useInterval(() => {
-    setTimeString(DateTime.now().setLocale("en-US").toLocaleString(timeOption));
-  }, 1000);
+  )
+  useEffect(() => {
+    const updateTime = () => {
+      const now = DateTime.now().setLocale("en-US").toLocaleString(timeOption)
+      setTimeString(now)
+      requestAnimationFrame(updateTime)
+    }
+    requestAnimationFrame(updateTime)
+  }, [])
   return (
     <section className={"mt-10 flex flex-col md:mt-16"}>
       <p className="text-base font-semibold">{t("p_2277-2331_Overview")}</p>
