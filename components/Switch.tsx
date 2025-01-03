@@ -70,10 +70,11 @@ export default function Switch({
             ref={tagRefs.current[index]}
             onClick={() => onTagChange(tag)}
             className={cn(
-              "relative cursor-pointer rounded-3xl px-2.5 py-[8px] text-[13px] font-[600] transition-all duration-500",
-              nowTag === tag
-                ? "text-black dark:text-white"
-                : "text-stone-400 dark:text-stone-500",
+              "relative cursor-pointer rounded-3xl px-2.5 py-[8px] text-[13px] font-[600]",
+              "transition-all duration-500 ease-in-out text-stone-400 dark:text-stone-500 hover:text-stone-950 hover:dark:text-stone-50",
+              {
+                "text-stone-950 dark:text-stone-50": nowTag === tag,
+              },
             )}
           >
             {nowTag === tag && (
