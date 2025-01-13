@@ -63,9 +63,6 @@ function Header() {
           <ModeToggle />
         </section>
       </section>
-      <div className="w-full flex justify-end sm:hidden mt-1">
-        <Links />
-      </div>
       <Overview />
     </div>
   );
@@ -90,11 +87,14 @@ function Links() {
           <a
             key={index}
             href={link.link}
-            target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm font-medium opacity-50 transition-opacity hover:opacity-100"
           >
-            {link.name}
+            <button
+              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 border border-input hover:text-accent-foreground h-9 rounded-full px-[9px] bg-white dark:bg-black cursor-pointer hover:bg-accent/50 dark:hover:bg-accent/50"
+              type="button"
+            >
+              {link.name}
+            </button>
           </a>
         );
       })}
