@@ -97,6 +97,12 @@ export default async function LocaleLayout({
           data-cf-beacon={JSON.stringify({ token: process.env.NEXT_PUBLIC_CF_ANALYTICS_ID })}
           strategy="afterInteractive"
         />
+        <Script
+          defer
+          src="https://uma.lihj.me/script.js"
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_ANALYTICS_ID}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
